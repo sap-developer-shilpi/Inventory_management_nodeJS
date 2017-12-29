@@ -1,0 +1,59 @@
+<div class="container-fluid dash_board_container">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+            <dl class="nav nav-pills flex-column">
+                <dt class="nav-item">
+                    <a class="nav-link " href="#">Locations</a>
+                </dt>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="show_locations"> Show All</a>
+                </dd>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="add_locations">Add New</a>
+                </dd>
+            </dl>
+
+            <dl class="nav nav-pills flex-column">
+                <dt class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </dt>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="show_products">Show All</a>
+                </dd>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#">Add New</a>
+                </dd>
+            </dl>
+        </nav>
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="main">
+        </main>
+    </div>
+</div>
+<script>
+
+    $('#show_locations').click(function (e) {
+        fetch('/locations').then((res) => {
+            res.text().then((val) => {
+            $("#main").html(val);
+        });
+        })
+
+    });
+    $('#show_products').click(function (e) {
+        fetch('/products').then((res) => {
+            res.text().then((val) => {
+            $("#main").html(val);
+    });
+    })
+    });
+
+    $('#add_locations').click(function (e) {
+        fetch('/locations/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        })
+
+    });
+
+</script>

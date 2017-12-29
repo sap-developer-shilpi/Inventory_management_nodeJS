@@ -1,0 +1,81 @@
+<div class="loc_form">
+    <form method="post" action="/locations/create" id="loc_form2">
+        <div class="row">
+            <div class="col">
+                <label>Location Name</label>
+                <input type="text" class="form-control" name="locName" value="{{locName}}">
+            </div>
+            <div class="col">
+                <label>Location Code</label>
+                <input type="text" class="form-control" name="locCode">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Representative Name</label>
+                <input type="text" class="form-control" name="representative">
+            </div>
+            <div class="col">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email">
+            </div>
+            <div class="col">
+                <label>Phone</label>
+                <input type="tel" class="form-control" name="phone">
+            </div>
+        </div>
+        <hr>
+        <h5> Address: </h5>
+        <div class="row">
+            <div class="col">
+                <label>Street</label>
+                <input type="tel" class="form-control" name="street">
+            </div>
+            <div class="col">
+                <label>City</label>
+                <input type="text" class="form-control" name="city">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <label>State</label>
+                <input type="text" class="form-control" name="state">
+            </div>
+            <div class="col">
+                <label>Zip Code</label>
+                <input type="number" class="form-control" name="zipCode">
+            </div>
+            <div class="col">
+                <label>Country</label>
+                <input type="text" class="form-control" name="country">
+            </div>
+        </div>
+        <div class="row" style="margin-left: 35%;">
+            <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="addData()">Send</button>
+            <button type="reset" class="btn btn-primary" style="margin: 2% 2%;">Reset</button>
+        </div>
+
+    </form>
+
+</div>
+<script>
+    //onclick="addData()"
+     function addData(){
+         var data = document.getElementById('loc_form2').elements;
+         var formFields = {};
+         for(var i = 0; i < data.length; i++)
+         {
+             formFields[data[i].name] = data[i].value;
+             console.log('data name:', data[i].name,' and value',data[i].value);
+         }
+         //"application/json" "application/x-www-form-urlencoded"
+         var myHeaders = new Headers();
+         myHeaders.append("Content-Type", "application/json");
+         fetch("/locations/create", {
+             method: "POST",
+             headers: myHeaders,
+             body: JSON.stringify(formFields)
+         });
+     }
+    </script>

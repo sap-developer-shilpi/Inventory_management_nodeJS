@@ -1,0 +1,25 @@
+<h2>Products</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {{#each products}}
+            <tr>
+                <td>{{code}}</td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td><span class="badge badge-success">Edit</span></td>
+                <td><span class="badge badge-danger">Delete</span></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
