@@ -1,0 +1,69 @@
+<div class="loc_form">
+    <form method="post" action="/locations/create" id="productForm">
+        <div class="row">
+            <div class="col">
+                <label>Product Name</label>
+                <input type="text" class="form-control" name="name" value="{{name}}">
+            </div>
+            <div class="col">
+                <label>Product Code</label>
+                <input type="text" class="form-control" name="code">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Manufacturer Name</label>
+                <input type="text" class="form-control" name="manufacturer">
+            </div>
+            <div class="col">
+                <label>Order-Email</label>
+                <input type="email" class="form-control" name="Oemail">
+            </div>
+            <div class="col">
+                <label>Price</label>
+                <input type="number" class="form-control" name="price">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <label>Sub Category</label>
+                <input type="text" class="form-control" name="subCategory">
+            </div>
+            <div class="col">
+                <label>image</label>
+                <input type="text" class="form-control" name="image">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <label>Wholesaler- URL</label>
+                <input type="text" class="form-control" name="url">
+            </div>
+        </div>
+        <div class="row" style="margin-left: 35%;">
+            <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="postFormAsMultiData()">Send</button>
+            <button type="reset" class="btn btn-primary" style="margin: 2% 2%;">Reset</button>
+        </div>
+
+    </form>
+
+</div>
+<script>
+    function postFormAsMultiData(){
+        //"Content-Type" : "application/x-www-form-urlencoded"
+        var form = new FormData(document.getElementById('productForm'));
+        const data = new URLSearchParams();
+        for (const pair of form) {
+            data.append(pair[0], pair[1]);
+        }
+        fetch("/products/create", {
+            method: "POST",
+            body: data
+        }).then((resp) => resp.text()).then((data) => {
+            console.log(data);
+            $("#main").html(data);
+        });
+    }
+</script>

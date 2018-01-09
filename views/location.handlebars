@@ -10,15 +10,38 @@
         </tr>
         </thead>
         <tbody>
-        {{#each locations}}
             <tr>
-                <td>{{locCode}}</td>
-                <td>{{locName}}</td>
-                <td>{{phone}}</td>
+                <td>{{location.locCode}}</td>
+                <td>{{location.locName}}</td>
+                <td>{{location.phone}}</td>
                 <td><span class="badge badge-success">Edit</span></td>
                 <td><span class="badge badge-danger">Delete</span></td>
             </tr>
-        {{/each}}
         </tbody>
     </table>
 </div>
+<h2 style="text-align: center;">One Location added successfully. Would you like to add more?</h2>
+<div class="row" style="margin-left: 35%;">
+    <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="renderForm()">Yes</button>
+    <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="showIndex()">No</button>
+</div>
+</div>
+<script>
+    function renderForm(){
+        fetch('/locations/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        });
+    };
+
+    function showIndex(){
+        fetch('/locations').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        });
+    }
+
+</script>
+

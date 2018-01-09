@@ -1,0 +1,24 @@
+<h2>Locations</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Loc_Code</th>
+            <th>Loc_Name</th>
+            <th>Phone</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {{#each locations}}
+            <tr>
+                <td>{{locCode}}</td>
+                <td>{{locName}}</td>
+                <td>{{phone}}</td>
+                <td><span class="badge badge-success">Edit</span></td>
+                <td><span class="badge badge-danger">Delete</span></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

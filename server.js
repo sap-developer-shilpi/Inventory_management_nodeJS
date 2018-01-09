@@ -9,7 +9,9 @@ mongoose.connect('mongodb://localhost:27017/Inventory_management');
 const routes = require('./routes/index');
 const product = require('./routes/product');
 const location = require('./routes/location');
+const category = require('./routes/category');
 const dashboard = require('./routes/dashboard');
+const subCategory = require('./routes/subCategory');
 
 // app connect
 var app = express();
@@ -26,6 +28,8 @@ app.use('/', product);
 app.use('/', routes);
 app.use('/', location);
 app.use('/', dashboard);
+app.use('/', category);
+app.use('/', subCategory);
 
 app.listen(3000,() => {
     console.log("Application started on port 3000");

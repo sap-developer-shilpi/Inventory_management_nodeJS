@@ -5,12 +5,31 @@ body{
     background-color:#f4f4f4;
 }
 
+header ul li{
+    margin-right: 3vw;
+    font-size: 18px;
+}
+
 
 #logo{
     width:50px;
     height:35px;
+    margin-right: 2vw;
 }
 
+#nav-search{
+    padding:6px 15px 6px 30px;
+    margin:3px;
+    margin-top: 10px;
+    width: 400px;
+    background: url('./../images/search.png') no-repeat 8px 6px;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+}
+#nav-search:focus{
+   outline: none;
+}
 
 .main-slide{
     margin: 70px 20px 20px 20px;
@@ -89,6 +108,11 @@ table{
 /* dashboard admin */
 .dash_board_container{
     margin: 70px 20px 20px 20px;
+}
+/*  loc_form */
+.loc_form{
+    margin: 2% 5%;
+    float:left;
 }
 
 /* location */

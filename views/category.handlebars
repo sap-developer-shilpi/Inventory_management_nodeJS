@@ -1,0 +1,42 @@
+<h2>Categories</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Category</th>
+            <th>description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{category.categoryName}}</td>
+            <td>{{category.description}}</td>
+            <td><span class="badge badge-success">Edit</span></td>
+            <td><span class="badge badge-danger">Delete</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 style="text-align: center;">One Category added successfully. Would you like to add more?</h2>
+    <div class="row" style="margin-left: 35%;">
+        <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="renderForm()">Yes</button>
+        <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="showIndex()">No</button>
+    </div>
+</div>
+<script>
+    function renderForm(){
+        fetch('/categories/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        });
+    };
+
+    function showIndex(){
+        fetch('/categories').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        });
+    }
+
+</script>

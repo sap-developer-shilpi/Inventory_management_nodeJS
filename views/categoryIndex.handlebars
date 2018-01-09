@@ -1,0 +1,22 @@
+
+<h2>Categories</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each categories}}
+            <tr>
+                <td>{{categoryName}}</td>
+                <td>{{description}}</td>
+                <td><span class="badge badge-success">Edit</span></td>
+                <td><span class="badge badge-danger">Delete</span></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

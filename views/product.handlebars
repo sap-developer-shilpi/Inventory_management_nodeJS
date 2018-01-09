@@ -11,15 +11,36 @@
         </tr>
         </thead>
         <tbody>
-        {{#each products}}
             <tr>
-                <td>{{code}}</td>
-                <td>{{name}}</td>
-                <td>{{price}}</td>
+                <td>{{product.code}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
                 <td><span class="badge badge-success">Edit</span></td>
                 <td><span class="badge badge-danger">Delete</span></td>
             </tr>
-        {{/each}}
         </tbody>
     </table>
+    <h2 style="text-align: center;">One Product added successfully. Would you like to add more?</h2>
+    <div class="row" style="margin-left: 35%;">
+        <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="renderForm()">Yes</button>
+        <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="showIndex()">No</button>
+    </div>
 </div>
+<script>
+   function renderForm(){
+       fetch('/products/new').then((res) => {
+           res.text().then((val) => {
+               $("#main").html(val);
+           });
+       });
+    };
+
+   function showIndex(){
+       fetch('/products').then((res) => {
+           res.text().then((val) => {
+               $("#main").html(val);
+           });
+       });
+   }
+
+</script>

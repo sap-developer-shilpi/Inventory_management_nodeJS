@@ -1,6 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose')
+    , Schema = mongoose.Schema;
+const {SubCategory} = require('./subCategory');
 const validator = require('validator');
-var ProductSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -12,7 +14,7 @@ var ProductSchema = new mongoose.Schema({
         required: true,
         minLength: 1,
         trim: true,
-        unique: true,
+        unique: true
     },
     manufacturer: {
         type: String,
@@ -43,6 +45,10 @@ var ProductSchema = new mongoose.Schema({
     },
     image: {
         type: String
+    },
+    subCategory: {
+            type: Schema.Types.ObjectId,
+            ref: 'SubCategory'
     }
 
 });

@@ -1,0 +1,22 @@
+
+<h2>Subcategories</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Sub Category Name</th>
+            <th>Category Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each subCategories}}
+            <tr>
+                <td>{{subCategoryName}}</td>
+                <td>{{category.categoryName}}</td>
+                <td><span class="badge badge-success">Edit</span></td>
+                <td><span class="badge badge-danger">Delete</span></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

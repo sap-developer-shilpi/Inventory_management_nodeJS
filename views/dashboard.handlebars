@@ -6,10 +6,10 @@
                     <a class="nav-link " href="#">Locations</a>
                 </dt>
                 <dd class="nav-item">
-                    <a class="nav-link" href="#" id="show_locations"> Show All</a>
+                    <a class="nav-link" href="#" id="showLocations"> Show All</a>
                 </dd>
                 <dd class="nav-item">
-                    <a class="nav-link" href="#" id="add_locations">Add New</a>
+                    <a class="nav-link" href="#" id="addLocations">Add New</a>
                 </dd>
             </dl>
 
@@ -18,42 +18,105 @@
                     <a class="nav-link" href="#">Products</a>
                 </dt>
                 <dd class="nav-item">
-                    <a class="nav-link" href="#" id="show_products">Show All</a>
+                    <a class="nav-link" href="#" id="showProducts">Show All</a>
                 </dd>
                 <dd class="nav-item">
-                    <a class="nav-link" href="#">Add New</a>
+                    <a class="nav-link" href="#" id="addProducts">Add New</a>
                 </dd>
             </dl>
-        </nav>
+
+            <dl class="nav nav-pills flex-column">
+                <dt class="nav-item">
+                    <a class="nav-link" href="#">Sub-Categories</a>
+                </dt>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="showSubCategories">Show All</a>
+                </dd>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="addSubCategories">Add New</a>
+                </dd>
+            </dl>
+            <dl class="nav nav-pills flex-column">
+                <dt class="nav-item">
+                    <a class="nav-link" href="#">Categories</a>
+                </dt>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="showCategories">Show All</a>
+                </dd>
+                <dd class="nav-item">
+                    <a class="nav-link" href="#" id="addCategories">Add New</a>
+                </dd>
+            </dl>
+
+            </nav>
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="main">
         </main>
     </div>
 </div>
 <script>
 
-    $('#show_locations').click(function (e) {
+    $('#showLocations').click(function (e) {
         fetch('/locations').then((res) => {
             res.text().then((val) => {
-            $("#main").html(val);
-        });
+                $("#main").html(val);
+            });
         })
 
     });
-    $('#show_products').click(function (e) {
+    $('#showProducts').click(function (e) {
         fetch('/products').then((res) => {
             res.text().then((val) => {
-            $("#main").html(val);
-    });
-    })
+                $("#main").html(val);
+            });
+        })
     });
 
-    $('#add_locations').click(function (e) {
+    $('#addLocations').click(function (e) {
         fetch('/locations/new').then((res) => {
             res.text().then((val) => {
                 $("#main").html(val);
             });
         })
 
+    });
+    $('#addProducts').click(function (e) {
+        fetch('/products/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        })
+    });
+
+    $('#addSubCategories').click(function (e) {
+        fetch('/subCategories/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        })
+    });
+
+    $('#showSubCategories').click(function (e) {
+        fetch('/subCategories').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        })
+    });
+
+    $('#addCategories').click(function (e) {
+        fetch('/categories/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        })
+    });
+
+    $('#showCategories').click(function (e) {
+        fetch('/categories').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        })
     });
 
 </script>

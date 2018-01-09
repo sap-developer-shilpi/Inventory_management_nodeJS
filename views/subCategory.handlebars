@@ -1,0 +1,44 @@
+
+<h2>Subcategories</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Sub Category Name</th>
+            <th>Category Name</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{subCategory.subCategoryName}}</td>
+                <td>{{subCategory.category.categoryName}}</td>
+                <td><span class="badge badge-success">Edit</span></td>
+                <td><span class="badge badge-danger">Delete</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 style="text-align: center;">One Sub-Category added successfully. Would you like to add more?</h2>
+    <div class="row" style="margin-left: 35%;">
+        <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="renderForm()">Yes</button>
+        <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="showIndex()">No</button>
+    </div>
+</div>
+<script>
+    function renderForm(){
+        fetch('/subCategories/new').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        });
+    };
+
+    function showIndex(){
+        fetch('/subCategories').then((res) => {
+            res.text().then((val) => {
+                $("#main").html(val);
+            });
+        });
+    }
+
+</script>
+

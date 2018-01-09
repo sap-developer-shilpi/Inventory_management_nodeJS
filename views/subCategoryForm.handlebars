@@ -1,0 +1,36 @@
+<div class="loc_form">
+    <form method="post" action="/subCategories/create" id="subCatform">
+    <div class="row">
+        <div class="col">
+            <label>Sub-Category Name</label>
+            <input type="text" class="form-control" name="subCategoryName" >
+        </div>
+        <div class="col">
+            <label>Category Name</label>
+            <input type="text" class="form-control" name="category">
+        </div>
+    </div>
+        <div class="row" style="margin-left: 35%;">
+            <button type="button" class="btn btn-primary" style="margin: 2% 2%;" onclick="postFormAsMultiData()">Send</button>
+            <button type="reset" class="btn btn-primary" style="margin: 2% 2%;">Reset</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function postFormAsMultiData(){
+        //"Content-Type" : "application/x-www-form-urlencoded"
+        var form = new FormData(document.getElementById('subCatform'));
+        const data = new URLSearchParams();
+        for (const pair of form) {
+            data.append(pair[0], pair[1]);
+        }
+        fetch("/subCategories/create", {
+            method: "POST",
+            body: data
+        }).then((resp) => resp.text()).then((data) => {
+            console.log(data);
+            $("#main").html(data);
+        });
+    }
+</script>

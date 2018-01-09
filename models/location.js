@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const validator = require('validator');
-var LocationSchema = new mongoose.Schema({
+const LocationSchema = new mongoose.Schema({
     locName: {
         type: String,
         required: true,
@@ -12,7 +12,7 @@ var LocationSchema = new mongoose.Schema({
         required: true,
         minLength: 1,
         trim: true,
-        unique: true,
+        unique: true
     },
     phone: {
         type: Number,
