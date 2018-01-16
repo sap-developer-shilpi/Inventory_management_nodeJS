@@ -35,32 +35,17 @@
     <!-- cards -->
     <h2 > Categories</h2>
     <table cellspacing="10">
+        {{#each category}}
         <tr>
             <td>
                 <a href="#">
                     <div class="category">
                         <div class="category-img">
-                            <img src="images/vegs.jpg" alt="fruits">
+                            <img src="images/categories/{{image}}" alt="fruits">
                         </div>
                         <div class="category-body-text">
-                            <p class="category-heading">Fruits & vegetables</p>
-                            <p class="category-description">Fruits & vegetables basket, Cut fruits, sprouts</p>
-                        </div>
-                        <div class="next_icon">
-                            <a href="#">&#10095;</a>
-                        </div>
-                    </div>
-                </a>
-            </td>
-            <td>
-                <a href="#">
-                    <div class="category">
-                        <div class="category-img">
-                            <img src="images/grocery.jpg" alt="fruits">
-                        </div>
-                        <div class="category-body-text">
-                            <p class="category-heading">Grocery & Staples</p>
-                            <p class="category-description">Pulses, Atta $ Other Flours, Rice $ Other Grains. Dry Fruits etc</p>
+                            <p class="category-heading">{{categoryName}}</p>
+                            <p class="category-description">{{description}}</p>
                         </div>
                         <div class="next_icon">
                             <a href="#">&#10095;</a>
@@ -69,74 +54,6 @@
                 </a>
             </td>
         </tr>
-        <tr>
-            <td>
-                <a href="#">
-                    <div class="category">
-                        <div class="category-img">
-                            <img src="images/beverages.jpg" alt="fruits">
-                        </div>
-                        <div class="category-body-text">
-                            <p class="category-heading">Beverages</p>
-                            <p class="category-description">Soft Drinks, Juices $ Concentraters, Tea & Coffee</p>
-                        </div>
-                        <div class="next_icon">
-                            <a href="#">&#10095;</a>
-                        </div>
-                    </div>
-                </a>
-            </td>
-            <td>
-                <a href="#">
-                    <div class="category">
-                        <div class="category-img">
-                            <img src="images/HHNeeds.jpg" alt="fruits">
-                        </div>
-                        <div class="category-body-text">
-                            <p class="category-heading">HouseHold Needs</p>
-                            <p class="category-description">Laundry, Detergent, Floor Cleaner, Soaps etc</p>
-                        </div>
-                        <div class="next_icon">
-                            <a href="#">&#10095;</a>
-                        </div>
-                    </div>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="#">
-                    <div class="category">
-                        <div class="category-img">
-                            <img src="images/snacks.jpg" alt="fruits">
-                        </div>
-                        <div class="category-body-text">
-                            <p class="category-heading">Snacks & Biscuits</p>
-                            <p class="category-description">Biscuits, Snacks, Namkeens & Chocolates</p>
-                        </div>
-                        <div class="next_icon">
-                            <a href="#">&#10095;</a>
-                        </div>
-                    </div>
-                </a>
-            </td>
-            <td>
-                <a href="#">
-                    <div class="category">
-                        <div class="category-img">
-                            <img src="images/sauce.jpg" alt="fruits">
-                        </div>
-                        <div class="category-body-text">
-                            <p class="category-heading">Noodles, Sauces $ Jams</p>
-                            <p class="category-description">Instant Foods, Noodles, Maggi</p>
-                        </div>
-                        <div class="next_icon">
-                            <a href="#">&#10095;</a>
-                        </div>
-                    </div>
-                </a>
-            </td>
-        </tr>
-
+          {{/each}}
     </table>
 </main>

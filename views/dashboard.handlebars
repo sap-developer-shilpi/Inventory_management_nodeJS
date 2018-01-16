@@ -1,53 +1,31 @@
 <div class="container-fluid dash_board_container">
     <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-            <dl class="nav nav-pills flex-column">
-                <dt class="nav-item">
-                    <a class="nav-link " href="#">Locations</a>
-                </dt>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="showLocations"> Show All</a>
-                </dd>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="addLocations">Add New</a>
-                </dd>
-            </dl>
+            <ul class="side-bar-nav">
+                <li data-attr="+">Categories
+                    <ul class="side-bar-nav">
+                    <li class="inner-nav" id="showCategories"> show all</li>
+                    <li class="inner-nav" id="addCategories"> add new </li></ul>
+                </li>
 
-            <dl class="nav nav-pills flex-column">
-                <dt class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                </dt>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="showProducts">Show All</a>
-                </dd>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="addProducts">Add New</a>
-                </dd>
-            </dl>
+                <li data-attr="+">Sub categories
+                    <ul class="side-bar-nav">
+                    <li class="inner-nav" id="showSubCategories"> show all</li>
+                    <li class="inner-nav" id="addSubCategories"> add new </li></ul>
+                </li>
 
-            <dl class="nav nav-pills flex-column">
-                <dt class="nav-item">
-                    <a class="nav-link" href="#">Sub-Categories</a>
-                </dt>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="showSubCategories">Show All</a>
-                </dd>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="addSubCategories">Add New</a>
-                </dd>
-            </dl>
-            <dl class="nav nav-pills flex-column">
-                <dt class="nav-item">
-                    <a class="nav-link" href="#">Categories</a>
-                </dt>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="showCategories">Show All</a>
-                </dd>
-                <dd class="nav-item">
-                    <a class="nav-link" href="#" id="addCategories">Add New</a>
-                </dd>
-            </dl>
+                <li data-attr="+">Products
+                    <ul class="side-bar-nav">
+                    <li class="inner-nav" id="showProducts"> show all</li>
+                    <li class="inner-nav" id="addProducts"> add new </li></ul>
+                </li>
 
+                <li data-attr="+">Locations
+                    <ul class="side-bar-nav">
+                    <li class="inner-nav" id="showLocations"> show all</li>
+                    <li class="inner-nav" id="addLocations"> add new </li></ul>
+                </li>
+            </ul>
             </nav>
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="main">
         </main>
@@ -118,5 +96,17 @@
             });
         })
     });
+
+    function handler(e) {
+        var target = $( e.target );
+        if ( target.is( " li" ) ) {
+            target.children().toggle();
+
+           target.attr("data-attr") === '+' ? target.attr("data-attr","-") : target.attr("data-attr","+");
+        }
+    }
+
+
+    $( ".side-bar-nav" ).click( handler ).find( "ul" ).hide();
 
 </script>

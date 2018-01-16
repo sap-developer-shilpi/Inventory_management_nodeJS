@@ -6,8 +6,12 @@
             <input type="text" class="form-control" name="subCategoryName" >
         </div>
         <div class="col">
-            <label>Category Name</label>
-            <input type="text" class="form-control" name="category">
+            <label>Category</label>
+            <select name="category">
+            {{#each category}}
+                <option value="{{_id}}">{{categoryName}}</option>
+            {{/each}}
+            </select>
         </div>
     </div>
         <div class="row" style="margin-left: 35%;">

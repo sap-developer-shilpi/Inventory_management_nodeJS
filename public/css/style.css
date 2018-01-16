@@ -127,6 +127,33 @@ table{
     margin: 2% 2%;
 }
 
+/* css dashboard*/
+nav ul{
+    list-style: none;
+    text-transform: capitalize;
+    font-size: large;
+    margin: 0%;
+    padding: 0%;
+}
+
+
+nav li:hover{
+    color: green;
+}
+
+ nav li:before {
+    content: attr(data-attr);
+    font-size:large;
+}
+
+.inner-nav{
+    display: block;
+    padding: 0%;
+    color: grey;
+    text-transform: capitalize;
+    font-size: 1.2vw;
+}
+
 
 
 /* footer */

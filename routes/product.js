@@ -14,33 +14,24 @@ router.get('/products', function(req, res){
 });
 
 router.post('/products/create', function (req, res ) {
-    SubCategory.findOne({subCategoryName: req.body.subCategory}).then((subCategory) => {
-        const product  = new Product(
-            {name: req.body.name,
-                code: req.body.code,
-                price: req.body.price,
-                manufacturer: req.body.manufacturer,
-                wholesaler_url: req.body.url,
-                order_email: req.body.Oemail,
-                image: req.body.image,
-                subCategory: subCategory._id}
-        );
+        const product  = new Product(req.body);
         product.save(function(error) {
             if (!error) {
-                Product.find({})
-                    .populate('subCategory')
+                Product.findById(product._id)
+                    .populate('subCategory').then((product) => res.render('product', {product, partial_view: true}),
+                    (err) => {
+                    res.status(400).send(err);
+                });
+                } else {
+                res.status(400).send(error);
             }
-        }).then((product) => {
-            res.render('product',{product, partial_view: true});
         });
-    }).catch((e) => {
-        console.log(e);
-        res.status(404).send("No Data Found");
-    });
 });
 
 router.get('/products/new', function(req, res) {
-    res.render('productForm',{partial_view: true});
+   SubCategory.find().then((subCategory) => {
+       res.render('productForm',{subCategory,partial_view: true});
+   });
 });
 
 module.exports= router;
