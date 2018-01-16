@@ -4,7 +4,15 @@ const hbs = require('express-handlebars');
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/Inventory_management');
+const env = process.env.NODE_ENV || 'development';
+if(env === 'test'){
+    process.env.PORT = 3005;
+    process.env.MONGODB_URI = 'mongodb://localhost:27017/Inventory_management_Test';
+} else if(env === 'development' || env === 'production'){
+    process.env.PORT = 3000;
+    process.env.MONGODB_URI = 'mongodb://localhost:27017/Inventory_management';
+}
+mongoose.connect(process.env.MONGODB_URI);
 // routes
 const routes = require('./routes/index');
 const product = require('./routes/product');
@@ -30,7 +38,8 @@ app.use('/', location);
 app.use('/', dashboard);
 app.use('/', category);
 app.use('/', subCategory);
-
-app.listen(3000,() => {
-    console.log("Application started on port 3000");
+app.listen(process.env.PORT,() => {
+    console.log(`Application started on port ${process.env.PORT}` );
 });
+
+module.exports={app};

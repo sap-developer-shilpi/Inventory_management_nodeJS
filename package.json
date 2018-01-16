@@ -4,7 +4,8 @@
   "description": "This is an application to manage the inventory of Gagan Store in india",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "set \"NODE_ENV=test\" && mocha tests/**/*.test.js",
+    "test-watch": "nodemon --exec \"npm test\""
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +16,11 @@
     "mongodb": "^3.0.0-rc0",
     "mongoose": "^4.13.7",
     "validator": "^9.2.0"
+  },
+  "devDependencies": {
+    "expect": "^22.1.0",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.11",
+    "supertest": "^3.0.0"
   }
 }
