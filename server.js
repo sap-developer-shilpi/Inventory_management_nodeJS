@@ -12,6 +12,7 @@ if(env === 'test'){
     process.env.PORT = 3000;
     process.env.MONGODB_URI = 'mongodb://localhost:27017/Inventory_management';
 }
+console.log(process.env.MY_APP);
 mongoose.connect(process.env.MONGODB_URI);
 // routes
 const routes = require('./routes/index');
